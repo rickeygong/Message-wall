@@ -5,8 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Message-wall</title>
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <h1>Message-wall</h1>
+    <div class="publish" onclick="showPublish()">发布</div>
+    <div class="container">
+      <div class="content-top">
+        <h1 class="title">消息墙</h1>
+        <div class="top-bar">
+          <div class="searchinpu"><input class="search" type="text" placeholder="搜索" /></div>
+          <div class="topbtns">
+            <button onclick="search()">搜索</button>
+            <button onclick="clean()">清除</button>
+          </div>
+        </div>
+      </div>
+      <p class="empty" hidden>什么消息都没有~</p>
+      <div class="post input-dialog" hidden>
+        <textarea class="input-content" placeholder="请输入消息"></textarea>
+        <div class="bottom">
+          <div class="buttons">
+            <div class="button confirm" onclick="confirm()">确认</div>
+            <div class="button cancel" onclick="cancel()">取消</div>
+          </div>
+        </div>
+      </div>
+      <div class="posts"></div>
+      <!-- <div class="post">
+        <div class="content">你好你好你好</div>
+        <div class="bottom">
+            <p class="time">2022-5-31 12:22</p>
+            <div class="buttons">
+                <div class="button edit">编程</div>
+                <div class="button delete">删除</div>
+            </div>
+        </div>
+    </div> -->
+    </div>
+    <!-- <h1>Message-wall</h1>
+    <fieldset>
+      <legend>发布帖子</legend>
+      <input class="input-content" type="text" />
+      <p><button onclick="createMes()">发布</button></p>
+    </fieldset>
+    <fieldset>
+      <legend>更新帖子</legend>
+      <input class="post-id" type="text" />
+      <p><button onclick="updateMes()">更新</button></p>
+    </fieldset>
+    <fieldset>
+      <legend>删除帖子</legend>
+      请输入需要删除的帖子id：<input class="delete-id" type="text" />
+      <p><button onclick="deleteMes()">删除</button></p>
+    </fieldset> -->
   </body>
+  <script src="./js/index.js"></script>
 </html>
