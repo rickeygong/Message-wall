@@ -81,6 +81,7 @@ function createPost(content) {
   console.log(typeof content);
   if (content.length <= 0) {
     alert('请输入内容!');
+
     return;
   }
   let data = {
@@ -98,10 +99,10 @@ function createPost(content) {
 // PUT更新帖子
 function updatePost(postid, content) {
   debugger;
-  if (content.length <= 0) {
-    alert('更新的消息不能为空!');
-    return;
-  }
+  // if (content.length <= 0) {
+  //   alert('更新的消息不能为空!');
+  //   return;
+  // }
   let data = {
     content: content,
   };
@@ -181,6 +182,11 @@ async function refresh() {
 
       confirm.onclick = async function () {
         // 1. 更新消息
+        if (input.value.length <= 0) {
+          alert('编辑的内容不能为空!');
+          refresh();
+          return;
+        }
         await updatePost(post.post_id, input.value);
 
         // 2. 输入框替换回原来的文本元素
