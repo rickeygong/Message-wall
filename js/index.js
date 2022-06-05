@@ -3,7 +3,10 @@ document.querySelector('.search').value = new URL(window.location.href).searchPa
 
 function search() {
   const search = document.querySelector('.search').value;
-
+  if (search.length <= 0) {
+    alert('请输入搜索关键字');
+    return;
+  }
   // 浏览器的 url
   const url = new URL(window.location.href);
   url.searchParams.set('search', search);
@@ -13,10 +16,14 @@ function search() {
 }
 
 function clean() {
+  const search = document.querySelector('.search').value;
+  if (search.length <= 0) {
+    alert('搜索框没有内容，不需要清除！');
+    return;
+  }
   // 浏览器的 url
   const url = new URL(window.location.href);
   url.searchParams.delete('search');
-
   // 刷新页面，URL 改变
   window.location.href = url.href;
 }
@@ -71,6 +78,11 @@ function getPosts() {
 
 // POST 发布帖子
 function createPost(content) {
+  console.log(typeof content);
+  if (content.length <= 0) {
+    alert('请输入内容!');
+    return;
+  }
   let data = {
     content: content,
   };
@@ -85,6 +97,11 @@ function createPost(content) {
 
 // PUT更新帖子
 function updatePost(postid, content) {
+  debugger;
+  if (content.length <= 0) {
+    alert('更新的消息不能为空!');
+    return;
+  }
   let data = {
     content: content,
   };
